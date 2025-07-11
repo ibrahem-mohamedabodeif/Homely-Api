@@ -6,6 +6,7 @@ using Homely_Web_Api.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Homely_Web_Api
 {
@@ -13,7 +14,10 @@ namespace Homely_Web_Api
     {
         public static void Main(string[] args)
         {
-            Env.Load();
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
+            {
+                Env.Load();
+            }
 
             var builder = WebApplication.CreateBuilder(args);
 
@@ -48,7 +52,7 @@ namespace Homely_Web_Api
                         ValidateAudience = true,
                         ValidAudience = jwtSettings["Audience"],
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(jwtKey)),
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)),
                         ValidateLifetime = true
                     };
                 });
