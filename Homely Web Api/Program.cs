@@ -14,11 +14,8 @@ namespace Homely_Web_Api
     {
         public static void Main(string[] args)
         {
-            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
-            {
-                Env.Load();
-            }
-
+            
+            
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
@@ -69,6 +66,9 @@ namespace Homely_Web_Api
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+
+                Env.Load();
+
             }
 
             app.UseHttpsRedirection();

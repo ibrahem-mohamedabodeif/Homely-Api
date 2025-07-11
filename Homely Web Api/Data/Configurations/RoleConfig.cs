@@ -8,8 +8,11 @@ namespace Homely_Web_Api.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Role> builder)
         {
-            
+            builder.HasData(
+                new Role { Id = 1, Name = "guest" },
+                new Role { Id = 2, Name = "host" }
+            );
         }
     }
-   
+       
 }

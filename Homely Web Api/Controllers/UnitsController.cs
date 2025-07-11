@@ -1,7 +1,6 @@
 ﻿using Homely_Web_Api.DTOs.ResidentialUnitDtos;
 using Homely_Web_Api.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -19,9 +18,9 @@ namespace Homely_Web_Api.Controllers
         {
             try
             {
-                var hostId =int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+                var hostId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
                 var unitId = await _unitService.CreateResidentialUnitAsync(unit, hostId);
-                return Ok (unitId);
+                return Ok(unitId);
             }
             catch (Exception ex)
             {

@@ -172,6 +172,43 @@ namespace Homely_Web_Api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "room"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "luxe"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "beachfront"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "island"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "cabin"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "treehouse"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "mansions"
+                        });
                 });
 
             modelBuilder.Entity("Homely_Web_Api.Models.Residential_Units.Location", b =>
@@ -274,6 +311,18 @@ namespace Homely_Web_Api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "guest"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "host"
+                        });
                 });
 
             modelBuilder.Entity("Homely_Web_Api.Models.WishListItem", b =>
